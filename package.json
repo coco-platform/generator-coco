@@ -12,7 +12,8 @@
     "test:cov": "jest --watch"
   },
   "files": [
-    "generators"
+    "app",
+    "webpack"
   ],
   "repository": {
     "type": "git",
