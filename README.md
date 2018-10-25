@@ -5,7 +5,7 @@
 ![Package Dependency](https://david-dm.org/huang-xiao-jian/generator-coco.svg?style=flat)
 ![Package DevDependency](https://david-dm.org/huang-xiao-jian/generator-coco/dev-status.svg?style=flat)
 
-A universal seed for nodejs package.
+coco preset project for bootstrap.
 
 ## Usage
 
