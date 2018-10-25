@@ -39,11 +39,11 @@
   "homepage": "https://github.com/huang-xiao-jian/generator-coco#README",
   "devDependencies": {
     "@types/jest": "^23.3.7",
-    "@types/node": "^10.5.1",
+    "@types/node": "^10.12.0",
     "husky": "^0.14.3",
     "jest": "^23.2.0",
     "prettier": "^1.13.7",
-    "pretty-quick": "^1.4.1",
+    "pretty-quick": "^1.8.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
