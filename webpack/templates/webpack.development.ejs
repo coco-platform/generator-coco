@@ -1,0 +1,137 @@
+/**
+ * @description - webpack development configuration
+ * @author - huang.jian
+ */
+
+// packages
+const path = require('path');
+const webpack = require('webpack/index');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+module.exports ={
+  mode: 'development',
+  target: 'web',
+  entry: {
+    main: path.resolve(process.cwd(), '<%= entry %>'),
+  },
+  output: {
+    path: path.resolve(process.cwd(), 'dist', 'client'),
+    publicPath: '/',
+    filename: 'static/script/[name].bundle.js',
+    chunkFilename: 'static/script/[id]_[name].chunk.js',
+    crossOriginLoading: 'anonymous',
+  },
+  resolve: {
+    extensions: [
+      '.js',
+      '.jsx',
+      '.mjs',
+      '.json',
+      '.ts',
+      '.tsx',
+    ],
+    alias: {},
+  },
+  module: {
+    noParse: [/\.min\.js/],
+    rules: [
+      {
+        test: /\.(js|jsx|mjs|mjsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        include: path.resolve(process.cwd(), 'src'),
+        use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.p?css$/,
+        exclude: /node_modules/,
+        use: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('css-loader'),
+            options: {
+              root: path.resolve(process.cwd(), 'src'),
+              modules: <%= cssmodules %>,
+              importLoaders: 1,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              ident: 'postcss',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        exclude: [
+          path.resolve(process.cwd(), 'src'),
+          path.resolve(process.cwd(), 'public'),
+        ],
+        use: [
+          { loader: require.resolve('style-loader') },
+          { loader: require.resolve('css-loader') },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|bmp|mp3|woff|woff2|ttf|eot|svg)(\?.*)?$/,
+        use: [
+          {
+            loader: require.resolve('file-loader'),
+            options: {
+              name: 'static/media/[name].[hash:8].[ext]',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
+    new ForkTsCheckerWebpackPlugin(),
+    new CaseSensitivePathsPlugin(),
+    new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      template: path.resolve(process.cwd(), 'public', 'index.html'),
+      favicon: path.join(process.cwd(), 'public', 'favicon.ico'),
+    }),
+    <% if (definition) { %>
+    new InjectExternalPlugin({
+      env: 'development',
+      definition: <%= definition %>,
+    }),
+    <% } %>
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server',
+      openAnalyzer: false,
+      reportFilename: '../analyzer/index.html',
+    }),
+  ],
+  optimization: {
+    runtimeChunk: {
+      name: 'manifest',
+    },
+  },
+  devtool: 'cheap-module-source-map',
+  node: {
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    crypto: 'empty',
+    tls: 'empty',
+    child_process: 'empty',
+  },
+};
