@@ -1,6 +1,6 @@
 {
   "name": "generator-coco",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "preset project for bootstrap.",
   "engines": {
     "node": ">=10.0.0"
