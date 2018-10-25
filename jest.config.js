@@ -2,10 +2,10 @@ module.exports = {
   transform: {
     '\\.(ts|tsx)$': 'babel-jest',
   },
-  moduleFileExtensions: ['ts', 'json', 'js'],
+  moduleFileExtensions: ['js', 'json'],
   moduleDirectories: ['node_modules'],
   // Coverage report
-  collectCoverageFrom: ['src/**/*.ts'],
+  collectCoverageFrom: ['webpack/**/*.js'],
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'html'],
   // Test configuration
@@ -13,6 +13,6 @@ module.exports = {
   // Coverage report
   // Test configuration
   testEnvironment: 'node',
-  testMatch: ['<rootDir>/__tests__/**/*.spec.ts'],
-  testPathIgnorePatterns: ['/node_modules/', '/src/'],
+  testMatch: ['<rootDir>/__tests__/**/*.spec.js'],
+  testPathIgnorePatterns: ['/node_modules/'],
 };
