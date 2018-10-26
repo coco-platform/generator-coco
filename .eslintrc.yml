@@ -1,0 +1,34 @@
+# eslint configuration
+parserOptions:
+  ecmaVersion: 6
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+env:
+  node: true
+  es6: true
+  jest: true
+# 此处酌情使用
+extends:
+  - 'eslint:recommended'
+  - 'plugin:node/recommended'
+rules:
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+    - allowTemplateLiterals: true
+  semi:
+    - error
+    - always
+  arrow-parens:
+    - error
+    - always
+  max-len:
+    - error
+    - code: 120
