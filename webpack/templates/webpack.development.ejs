@@ -7,7 +7,9 @@
 const path = require('path');
 const webpack = require('webpack/index');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+<% if (typescript) { %>
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+<% } %>
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -99,8 +101,10 @@ module.exports ={
     ],
   },
   plugins: [
+  <% if (typescript) { %>
     new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
     new ForkTsCheckerWebpackPlugin(),
+  <% } %>
     new CaseSensitivePathsPlugin(),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
     new HtmlWebpackPlugin({
