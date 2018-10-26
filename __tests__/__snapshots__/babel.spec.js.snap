@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`coco:babel generator should render proper babel plugins within node 1`] = `Array []`;
+
+exports[`coco:babel generator should render proper babel plugins within node 2`] = `Array []`;
+
+exports[`coco:babel generator should render proper babel plugins within react 1`] = `
+Array [
+  "@babel/plugin-proposal-class-properties",
+  "@babel/plugin-syntax-dynamic-import",
+  "@babel/plugin-transform-regenerator",
+  "@babel/plugin-transform-runtime",
+  "@babel/plugin-transform-modules-commonjs",
+  "babel-plugin-import",
+  "react-hot-loader",
+]
+`;
+
+exports[`coco:babel generator should render proper babel plugins within react 2`] = `
+Array [
+  "@babel/plugin-proposal-class-properties",
+  "@babel/plugin-syntax-dynamic-import",
+  "@babel/plugin-transform-regenerator",
+  Array [
+    "@babel/plugin-transform-runtime",
+    Object {
+      "corejs": 2,
+      "helpers": true,
+    },
+  ],
+  Array [
+    "babel-plugin-import",
+    Object {
+      "libraryDirectory": "es",
+      "libraryName": "antd",
+      "style": "css",
+    },
+  ],
+]
+`;
+
+exports[`coco:babel generator should render proper babel plugins within react 3`] = `
+Object {
+  "development": Object {
+    "plugins": Array [
+      "react-hot-loader/babel",
+    ],
+  },
+  "test": Object {
+    "plugins": Array [
+      "@babel/plugin-transform-modules-commonjs",
+    ],
+  },
+}
+`;
+
+exports[`coco:babel generator should render proper babel plugins within web 1`] = `
+Array [
+  "@babel/plugin-proposal-class-properties",
+  "@babel/plugin-syntax-dynamic-import",
+  "@babel/plugin-transform-regenerator",
+  "@babel/plugin-transform-runtime",
+  "@babel/plugin-transform-modules-commonjs",
+]
+`;
+
+exports[`coco:babel generator should render proper babel plugins within web 2`] = `
+Array [
+  "@babel/plugin-proposal-class-properties",
+  "@babel/plugin-syntax-dynamic-import",
+  "@babel/plugin-transform-regenerator",
+  Array [
+    "@babel/plugin-transform-runtime",
+    Object {
+      "corejs": 2,
+      "helpers": true,
+    },
+  ],
+]
+`;
+
+exports[`coco:babel generator should render proper babel plugins within web 3`] = `
+Object {
+  "test": Object {
+    "plugins": Array [
+      "@babel/plugin-transform-modules-commonjs",
+    ],
+  },
+}
+`;
+
+exports[`coco:babel generator should render proper babel presets within node 1`] = `
+Array [
+  "@babel/preset-env",
+  "@babel/preset-typescript",
+]
+`;
+
+exports[`coco:babel generator should render proper babel presets within node 2`] = `
+Array [
+  Array [
+    "@babel/preset-env",
+    Object {
+      "targets": Object {
+        "node": "10.0.0",
+      },
+    },
+  ],
+  "@babel/preset-typescript",
+]
+`;
+
+exports[`coco:babel generator should render proper babel presets within web 1`] = `
+Array [
+  "@babel/preset-env",
+  "@babel/preset-typescript",
+]
+`;
+
+exports[`coco:babel generator should render proper babel presets within web 2`] = `
+Array [
+  Array [
+    "@babel/preset-env",
+    Object {
+      "loose": true,
+      "modules": false,
+    },
+  ],
+  "@babel/preset-typescript",
+]
+`;
