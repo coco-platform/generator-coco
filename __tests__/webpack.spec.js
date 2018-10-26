@@ -1,5 +1,5 @@
 /**
- * @description - coco generator
+ * @description - coco:webpack generator
  * @author - huang.jian <hjj491229492@hotmail.com>
  */
 

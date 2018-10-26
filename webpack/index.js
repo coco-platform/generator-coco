@@ -1,5 +1,5 @@
 /**
- * @description - @coco-platform/init-cli generated template
+ * @description -coco webpack generator
  * @author - huang.jian <hjj491229492@hotmail.com>
  */
 
