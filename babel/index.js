@@ -69,7 +69,7 @@ class BabelGenerator extends Generator {
     // babel preset, plugin dependencies
     this.yarnInstall(dependencies, { dev: true });
     this.yarnInstall(
-      ['@babel/cli', '@babel/core', '@babel/jest', 'babel-core@bridge'],
+      ['@babel/cli', '@babel/core', 'babel-jest', 'babel-core@bridge'],
       { dev: true }
     );
   }
