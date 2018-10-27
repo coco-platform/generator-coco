@@ -13,7 +13,10 @@
   },
   "files": [
     "app",
-    "webpack"
+    "webpack",
+    "babel",
+    "prettier",
+    "travis"
   ],
   "repository": {
     "type": "git",
