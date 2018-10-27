@@ -16,7 +16,8 @@
     "webpack",
     "babel",
     "prettier",
-    "travis"
+    "travis",
+    "git"
   ],
   "repository": {
     "type": "git",
