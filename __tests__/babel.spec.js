@@ -4,9 +4,13 @@
  */
 
 // packages
+const path = require('path');
+const fs = require('fs');
+const yeomon = require('yeoman-test');
+const assert = require('yeoman-assert');
 const Renderer = require('../babel/renderer');
 
-describe('coco:babel generator', () => {
+describe('coco:babel renderer', () => {
   it('should render proper babel presets within node', () => {
     const answers = {
       presets: ['@babel/preset-env', '@babel/preset-typescript'],
@@ -72,5 +76,26 @@ describe('coco:babel generator', () => {
     expect(rc.dependencies).toMatchSnapshot();
     expect(rc.pluginsRenderBlock).toMatchSnapshot();
     expect(rc.envRenderBlock).toMatchSnapshot();
+  });
+});
+
+describe('coco:babel generator', () => {
+  it('should output proper babel configuration', () => {
+    const babel = path.resolve(__dirname, '../babel');
+    const prompts = {
+      presets: ['@babel/preset-env', '@babel/preset-typescript'],
+      environment: 'React',
+    };
+
+    return yeomon
+      .run(babel)
+      .withPrompts(prompts)
+      .then(() => {
+        assert.file(['.babelrc']);
+
+        const configuration = fs.readFileSync('.babelrc', 'utf8');
+
+        expect(configuration).toMatchSnapshot();
+      });
   });
 });

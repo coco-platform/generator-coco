@@ -12,6 +12,7 @@
 
 // packages
 const Generator = require('yeoman-generator');
+const Renderer = require('./renderer');
 
 class BabelGenerator extends Generator {
   async prompting() {
@@ -37,10 +38,41 @@ class BabelGenerator extends Generator {
       },
     ];
 
-    this.answers = await this.prompt(questions);
+    const answers = await this.prompt(questions);
+
+    this.renderer = new Renderer(answers);
+    this.renderer.renderBabelPresets().renderBabelPlugins();
   }
 
-  configuring() {}
+  configuring() {
+    const {
+      presetsRenderBlock,
+      pluginsRenderBlock,
+      envRenderBlock,
+    } = this.renderer;
+
+    const config = {
+      presets: presetsRenderBlock,
+      plugins: pluginsRenderBlock,
+      env: envRenderBlock,
+    };
+
+    this.fs.write(
+      this.destinationPath('.babelrc'),
+      JSON.stringify(config, null, '  ')
+    );
+  }
+
+  install() {
+    const { dependencies } = this.renderer;
+
+    // babel preset, plugin dependencies
+    this.yarnInstall(dependencies, { dev: true });
+    this.yarnInstall(
+      ['@babel/cli', '@babel/core', '@babel/jest', 'babel-core@bridge'],
+      { dev: true }
+    );
+  }
 }
 
 module.exports = BabelGenerator;

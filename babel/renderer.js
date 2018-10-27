@@ -33,6 +33,7 @@ class Renderer {
     this.presetsRenderBlock = [];
     this.pluginsRenderBlock = [];
     this.envRenderBlock = {};
+    // npm babel packages
     this.dependencies = [];
   }
 
@@ -59,7 +60,7 @@ class Renderer {
 
   renderBabelPlugins() {
     const { environment } = this.answers;
-    const WebPresetPlugins = [
+    const WebPresetPlugin = [
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-regenerator',
@@ -71,14 +72,17 @@ class Renderer {
         },
       ],
     ];
+    const WebPresetPluginNames = [
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-transform-regenerator',
+      '@babel/plugin-transform-runtime',
+    ];
 
     // web share block
     if (environment === 'Web' || environment === 'React') {
-      WebPresetPlugins.forEach((plugin) => {
-        this.dependencies.push(Array.isArray(plugin) ? plugin[0] : plugin);
-        this.pluginsRenderBlock.push(plugin);
-      });
-
+      this.pluginsRenderBlock.push(...WebPresetPlugin);
+      this.dependencies.push(...WebPresetPluginNames);
       // unit test with jest
       this.dependencies.push('@babel/plugin-transform-modules-commonjs');
 
