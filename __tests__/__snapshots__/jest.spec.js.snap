@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`coco:jest generator should output jest configuration 1`] = `
+"module.exports = {
+  transform: {
+    '\\\\\\\\.(ts|tsx|js|jsx)$': 'babel-jest',
+  },
+  moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
+  moduleDirectories: ['node_modules'],
+  collectCoverageFrom: ['./src/**/*.{js,jsx,ts,tsx}'],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['lcov', 'html'],
+  transformIgnorePatterns: ['/node_modules'],
+  testEnvironment: 'node',
+  testMatch: ['<rootDir>/__tests__/**/*.spec.{js,jsx,ts,tsx}'],
+  testPathIgnorePatterns: ['/node_modules/'],
+};
+"
+`;
+
+exports[`coco:jest generator should properly render template with universal require 1`] = `
+"module.exports = {
+  transform: {
+    '\\\\\\\\.(ts|tsx|js|jsx)$': 'babel-jest',
+    '\\\\\\\\.(jpg|jpeg|png|giff|webp|svg)$':
+      '@coco-platform/jest-tools/lib/asset-transformer.js',
+  },
+  moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
+  moduleDirectories: ['node_modules'],
+  moduleNameMapper: {
+    '\\\\\\\\.css$': '@coco-platform/jest-tools/lib/css-ignore.js',
+    '\\\\\\\\.pcss': '@coco-platform/jest-tools/lib/css-modules.js',
+  },
+  collectCoverageFrom: ['native/**/*.{js,jsx,ts,tsx}'],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['lcov', 'html'],
+  transformIgnorePatterns: ['/node_modules'],
+  testEnvironment: 'node',
+  testMatch: ['<rootDir>/__tests__/**/*.spec.{js,jsx,ts,tsx}'],
+  testPathIgnorePatterns: ['/node_modules/'],
+};
+"
+`;
+
+exports[`coco:jest generator should properly render template without universal require 1`] = `
+"module.exports = {
+  transform: {
+    '\\\\\\\\.(ts|tsx|js|jsx)$': 'babel-jest',
+  },
+  moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
+  moduleDirectories: ['node_modules'],
+  collectCoverageFrom: ['native/**/*.{js,jsx,ts,tsx}'],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['lcov', 'html'],
+  transformIgnorePatterns: ['/node_modules'],
+  testEnvironment: 'node',
+  testMatch: ['<rootDir>/__tests__/**/*.spec.{js,jsx,ts,tsx}'],
+  testPathIgnorePatterns: ['/node_modules/'],
+};
+"
+`;
