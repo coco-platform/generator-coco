@@ -11,7 +11,7 @@ const assert = require('yeoman-assert');
 
 describe('coco:webpack', () => {
   it('should generate webpack configuration with typescript', () => {
-    const webpack = path.resolve(__dirname, '../webpack');
+    const webpack = path.resolve(__dirname, '../generators/webpack');
     const prompts = {
       typescript: true,
       cssmodules: false,
@@ -34,7 +34,7 @@ describe('coco:webpack', () => {
   });
 
   it('should generate webpack configuration without typescript', () => {
-    const webpack = path.resolve(__dirname, '../webpack');
+    const webpack = path.resolve(__dirname, '../generators/webpack');
     const prompts = {
       typescript: false,
       cssmodules: false,

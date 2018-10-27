@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const yeomon = require('yeoman-test');
 const assert = require('yeoman-assert');
-const Renderer = require('../babel/renderer');
+const Renderer = require('../generators/babel/renderer');
 
 describe('coco:babel renderer', () => {
   it('should render proper babel presets within node', () => {
@@ -81,7 +81,7 @@ describe('coco:babel renderer', () => {
 
 describe('coco:babel generator', () => {
   it('should output proper babel configuration', () => {
-    const babel = path.resolve(__dirname, '../babel');
+    const babel = path.resolve(__dirname, '../generators/babel');
     const prompts = {
       presets: ['@babel/preset-env', '@babel/preset-typescript'],
       environment: 'React',

@@ -12,12 +12,7 @@
     "test:cov": "jest --watch"
   },
   "files": [
-    "app",
-    "webpack",
-    "babel",
-    "prettier",
-    "travis",
-    "git"
+    "generators"
   ],
   "repository": {
     "type": "git",

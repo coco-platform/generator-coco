@@ -11,7 +11,7 @@ const assert = require('yeoman-assert');
 
 describe('coco:travis', () => {
   it('should generate travis configuration', () => {
-    const travis = path.resolve(__dirname, '../travis');
+    const travis = path.resolve(__dirname, '../generators/travis');
 
     return renderer.run(travis).then(() => {
       assert.file(['.travis.yml']);

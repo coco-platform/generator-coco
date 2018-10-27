@@ -47,11 +47,11 @@ exports[`coco:babel generator should output proper babel configuration 1`] = `
 }"
 `;
 
-exports[`coco:babel generator should render proper babel plugins within node 1`] = `Array []`;
+exports[`coco:babel renderer should render proper babel plugins within node 1`] = `Array []`;
 
-exports[`coco:babel generator should render proper babel plugins within node 2`] = `Array []`;
+exports[`coco:babel renderer should render proper babel plugins within node 2`] = `Array []`;
 
-exports[`coco:babel generator should render proper babel plugins within react 1`] = `
+exports[`coco:babel renderer should render proper babel plugins within react 1`] = `
 Array [
   "@babel/plugin-proposal-class-properties",
   "@babel/plugin-syntax-dynamic-import",
@@ -63,7 +63,7 @@ Array [
 ]
 `;
 
-exports[`coco:babel generator should render proper babel plugins within react 2`] = `
+exports[`coco:babel renderer should render proper babel plugins within react 2`] = `
 Array [
   "@babel/plugin-proposal-class-properties",
   "@babel/plugin-syntax-dynamic-import",
@@ -86,7 +86,7 @@ Array [
 ]
 `;
 
-exports[`coco:babel generator should render proper babel plugins within react 3`] = `
+exports[`coco:babel renderer should render proper babel plugins within react 3`] = `
 Object {
   "development": Object {
     "plugins": Array [
@@ -101,7 +101,7 @@ Object {
 }
 `;
 
-exports[`coco:babel generator should render proper babel plugins within web 1`] = `
+exports[`coco:babel renderer should render proper babel plugins within web 1`] = `
 Array [
   "@babel/plugin-proposal-class-properties",
   "@babel/plugin-syntax-dynamic-import",
@@ -111,7 +111,7 @@ Array [
 ]
 `;
 
-exports[`coco:babel generator should render proper babel plugins within web 2`] = `
+exports[`coco:babel renderer should render proper babel plugins within web 2`] = `
 Array [
   "@babel/plugin-proposal-class-properties",
   "@babel/plugin-syntax-dynamic-import",
@@ -126,7 +126,7 @@ Array [
 ]
 `;
 
-exports[`coco:babel generator should render proper babel plugins within web 3`] = `
+exports[`coco:babel renderer should render proper babel plugins within web 3`] = `
 Object {
   "test": Object {
     "plugins": Array [
@@ -136,14 +136,14 @@ Object {
 }
 `;
 
-exports[`coco:babel generator should render proper babel presets within node 1`] = `
+exports[`coco:babel renderer should render proper babel presets within node 1`] = `
 Array [
   "@babel/preset-env",
   "@babel/preset-typescript",
 ]
 `;
 
-exports[`coco:babel generator should render proper babel presets within node 2`] = `
+exports[`coco:babel renderer should render proper babel presets within node 2`] = `
 Array [
   Array [
     "@babel/preset-env",
@@ -157,14 +157,14 @@ Array [
 ]
 `;
 
-exports[`coco:babel generator should render proper babel presets within web 1`] = `
+exports[`coco:babel renderer should render proper babel presets within web 1`] = `
 Array [
   "@babel/preset-env",
   "@babel/preset-typescript",
 ]
 `;
 
-exports[`coco:babel generator should render proper babel presets within web 2`] = `
+exports[`coco:babel renderer should render proper babel presets within web 2`] = `
 Array [
   Array [
     "@babel/preset-env",

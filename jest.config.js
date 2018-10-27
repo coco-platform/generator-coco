@@ -5,7 +5,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'json'],
   moduleDirectories: ['node_modules'],
   // Coverage report
-  collectCoverageFrom: ['webpack/**/*.js'],
+  collectCoverageFrom: ['generators/**/*.js'],
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'html'],
   // Test configuration

@@ -11,7 +11,7 @@ const assert = require('yeoman-assert');
 
 describe('coco:prettier', () => {
   it('should generate prettier configuration', () => {
-    const prettier = path.resolve(__dirname, '../prettier');
+    const prettier = path.resolve(__dirname, '../generators/prettier');
 
     return renderer.run(prettier).then(() => {
       assert.file(['.prettierrc']);

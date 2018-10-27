@@ -12,7 +12,13 @@ const hbs = require('handlebars');
 
 describe('coco:jest generator', () => {
   const template = fs.readFileSync(
-    path.resolve(process.cwd(), 'jest', 'templates', 'jest.config.js.hbs'),
+    path.resolve(
+      process.cwd(),
+      'generators',
+      'jest',
+      'templates',
+      'jest.config.js.hbs'
+    ),
     'utf8'
   );
   const compile = hbs.compile(template);
@@ -38,7 +44,7 @@ describe('coco:jest generator', () => {
   });
 
   it('should output jest configuration', () => {
-    const jest = path.resolve(__dirname, '../jest');
+    const jest = path.resolve(__dirname, '../generators/jest');
     const prompts = {
       universal: false,
       environment: 'node',

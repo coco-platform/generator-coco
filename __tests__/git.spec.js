@@ -11,7 +11,7 @@ const assert = require('yeoman-assert');
 
 describe('coco:git', () => {
   it('should generate git configuration', () => {
-    const git = path.resolve(__dirname, '../git');
+    const git = path.resolve(__dirname, '../generators/git');
 
     return renderer.run(git).then(() => {
       assert.file(['.gitignore']);
