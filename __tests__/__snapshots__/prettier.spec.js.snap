@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`coco:prettier should generate prettier configuration 1`] = `
+"{
+  \\"singleQuote\\": true,
+  \\"arrowParens\\": \\"always\\",
+  \\"trailingComma\\": \\"es5\\"
+}
+"
+`;
