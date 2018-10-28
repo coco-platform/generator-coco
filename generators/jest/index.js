@@ -12,7 +12,6 @@
  */
 
 // packages
-const fs = require('fs');
 const hbs = require('handlebars');
 const Generator = require('yeoman-generator');
 
@@ -42,10 +41,7 @@ class JestGenerator extends Generator {
   }
 
   configuring() {
-    const template = fs.readFileSync(
-      this.templatePath('jest.config.js.hbs'),
-      'utf8'
-    );
+    const template = this.fs.read(this.templatePath('jest.config.js.hbs'));
     const compile = hbs.compile(template);
     const content = compile(this.answers);
 
