@@ -1,5 +1,5 @@
 /**
- * @description - coco:babel generator
+ * @description - coco:jest generator
  * @author - huang.jian <hjj491229492@hotmail.com>
  */
 
