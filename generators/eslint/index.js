@@ -37,12 +37,13 @@ class EslintGenerator extends Generator {
       {
         type: ' confirm',
         name: 'babel',
-        message: 'Would you like to use babel as parser?',
+        message: 'Would you like to use babel as eslint parser?',
+        default: false,
       },
       {
         type: 'checkbox',
         name: 'context',
-        message: 'Which context would you like to use?',
+        message: 'Which context would you like to lint?',
         default: ['browser', 'jest'],
         choices: ['browser', 'node', 'jest'],
       },
