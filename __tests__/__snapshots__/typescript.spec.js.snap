@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`coco:typescript generator should output typescript configuration 1`] = `
+"{
+  \\"defaultSeverity\\": \\"error\\",
+  \\"extends\\": [
+    \\"tslint:recommended\\"
+  ],
+  \\"jsRules\\": {},
+  \\"rules\\": {
+    \\"quotemark\\": [true, \\"single\\", \\"jsx-double\\"],
+    \\"trailing-comma\\": [
+      true,
+      {
+        \\"multiline\\": \\"never\\"
+      }
+    ]
+  },
+  \\"rulesDirectory\\": []
+}
+"
+`;
+
+exports[`coco:typescript generator should output typescript configuration 2`] = `
+"{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"esnext\\",
+    \\"module\\": \\"es2015\\",
+    \\"moduleResolution\\": \\"node\\",
+    \\"esModuleInterop\\": true,
+    \\"allowSyntheticDefaultImports\\": true,
+    \\"jsx\\": \\"preserve\\",
+    \\"strict\\": true,
+    \\"noImplicitAny\\": true,
+    \\"noUnusedLocals\\": true,
+    \\"noUnusedParameters\\": true,
+    \\"removeComments\\": false,
+    \\"sourceMap\\": true,
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"./lib/**/*.ts\\"],
+  \\"exclude\\": [\\"node_modules\\"]
+}
+"
+`;
