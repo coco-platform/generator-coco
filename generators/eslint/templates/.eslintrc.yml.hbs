@@ -1,0 +1,40 @@
+{{#if babel~}}
+  parser: babel-eslint
+{{/if}}
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+{{#if context.length ~}}
+env:
+{{/if}}
+{{#each context}}
+  {{this}}: true
+{{/each}}
+{{#if extends.length ~}}
+extends:
+{{/if}}
+{{#each extends}}
+  - '{{this}}'
+{{/each}}
+rules:
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - single
+    - allowTemplateLiterals: true
+  semi:
+    - error
+    - always
+  arrow-parens:
+    - error
+    - always
+  max-len:
+    - error
+    - code: 120
