@@ -1,0 +1,49 @@
+{
+  "name": "{{repo}}",
+  "version": "0.1.0",
+  "description": "{{description}}",
+  "main": "lib/index.js",
+  "types": "native/index.d.ts",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "precommit": "pretty-quick --staged",
+    "prepush": "npm test",
+    "prepublish": "npm-run-all -s clean compile:native compile:cjs",
+    "test": "jest --coverage",
+    "test:cov": "jest --watch",
+    "clean": "rm -rf lib native",
+    "compile:native": "tsc --declaration --outDir native",
+    "compile:cjs": "babel src --source-maps --out-dir lib --extensions '.js,.ts'"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@{{provider}}/{{scope}}/{{repo}}.git"
+  },
+  "keywords": [
+    "nodejs",
+    "universal"
+  ],
+  "contributors": [
+    {
+      "name": "huang.jian",
+      "email": "hjj491229492@hotmail.com"
+    },
+    {
+      "name": "yang.yuncai",
+      "email": "383235388@qq.com"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://{{provider}}/{{scope}}/{{repo}}/issues"
+  },
+  "homepage": "https://{{provider}}/{{scope}}/{{repo}}#README",
+  "devDependencies": {
+  },
+  "dependencies": {}
+}
