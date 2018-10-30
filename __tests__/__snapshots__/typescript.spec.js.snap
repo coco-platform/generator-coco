@@ -3,9 +3,7 @@
 exports[`coco:typescript generator should output typescript configuration 1`] = `
 "{
   \\"defaultSeverity\\": \\"error\\",
-  \\"extends\\": [
-    \\"tslint:recommended\\"
-  ],
+  \\"extends\\": [\\"tslint:recommended\\"],
   \\"jsRules\\": {},
   \\"rules\\": {
     \\"quotemark\\": [true, \\"single\\", \\"jsx-double\\"],
