@@ -23,9 +23,9 @@ describe('coco:webpack', () => {
       .run(webpack)
       .withPrompts(prompts)
       .then(() => {
-        assert.file(['webpack.development.js', 'webpack.production.js']);
+        assert.file(['webpack.config.js', 'webpack.production.js']);
 
-        const development = fs.readFileSync('webpack.development.js', 'utf8');
+        const development = fs.readFileSync('webpack.config.js', 'utf8');
         const production = fs.readFileSync('webpack.production.js', 'utf8');
 
         expect(development).toMatchSnapshot();
@@ -46,9 +46,9 @@ describe('coco:webpack', () => {
       .run(webpack)
       .withPrompts(prompts)
       .then(() => {
-        assert.file(['webpack.development.js', 'webpack.production.js']);
+        assert.file(['webpack.config.js', 'webpack.production.js']);
 
-        const development = fs.readFileSync('webpack.development.js', 'utf8');
+        const development = fs.readFileSync('webpack.config.js', 'utf8');
         const production = fs.readFileSync('webpack.production.js', 'utf8');
 
         expect(development).toMatchSnapshot();

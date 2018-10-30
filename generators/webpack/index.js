@@ -70,7 +70,7 @@ class WebpackGenerator extends Generator {
   writing() {
     this.fs.copyTpl(
       this.templatePath('webpack.development.ejs'),
-      this.destinationPath('webpack.development.js'),
+      this.destinationPath('webpack.config.js'),
       this.answers
     );
 
