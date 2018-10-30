@@ -10,14 +10,15 @@
   "scripts": {
     "precommit": "pretty-quick --staged",
     "prepush": "npm test",
-    "prepublish": "npm-run-all -s clean compile:native compile:cjs",
+    "prepublish": "npm-run-all -s clean compile",
     "test": "jest --coverage",
     "test:cov": "jest --watch",
-    "clean": "rm -rf lib native",
-    "compile:native": "tsc --declaration --outDir native",
-    "compile:cjs": "babel src --source-maps --out-dir lib --extensions '.js,.ts'"
+    {{#each scripts}}
+    "{{key}}": "{{value}}"
+    {{/each}}
   },
   "files": [
+    "native",
     "lib"
   ],
   "repository": {
@@ -25,7 +26,6 @@
     "url": "git+ssh://git@{{provider}}/{{scope}}/{{repo}}.git"
   },
   "keywords": [
-    "nodejs",
     "universal"
   ],
   "contributors": [
