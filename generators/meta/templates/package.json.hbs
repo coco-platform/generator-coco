@@ -11,11 +11,11 @@
     "precommit": "pretty-quick --staged",
     "prepush": "npm test",
     "prepublish": "npm-run-all -s clean compile",
-    "test": "jest --coverage",
-    "test:cov": "jest --watch",
     {{#each scripts}}
-    "{{key}}": "{{value}}"
+    "{{key}}": "{{{value}}}",
     {{/each}}
+    "test": "jest --coverage",
+    "test:cov": "jest --watch"
   },
   "files": [
     "native",

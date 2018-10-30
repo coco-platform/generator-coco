@@ -57,13 +57,6 @@ class MetaGenerator extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.option('environment', {
-      desc: 'the runtime environment, enum React, Node, Web',
-      alias: 'e',
-      type: String,
-      default: 'Node',
-    });
-
     this.option('project', {
       desc: 'the new project name',
       alias: 'p',
@@ -75,6 +68,14 @@ class MetaGenerator extends Generator {
 
   async prompting() {
     this.answers = await this.prompt([
+      {
+        type: 'list',
+        name: 'environment',
+        message: 'Which environment would you like to coding?',
+        // react has more specific configuration than standard web environment
+        choices: ['Node', 'Web', 'React'],
+        default: 0,
+      },
       {
         type: 'list',
         name: 'provider',
@@ -122,7 +123,7 @@ class MetaGenerator extends Generator {
       template: this.fs.read(this.templatePath('package.json.hbs')),
       context: {
         ...this.answers,
-        scripts: Reflect.get(PresetScripts, this.options.environment),
+        scripts: Reflect.get(PresetScripts, this.answers.environment),
       },
     };
 

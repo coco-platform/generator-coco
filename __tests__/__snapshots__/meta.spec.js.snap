@@ -14,12 +14,12 @@ exports[`coco:meta generator should generate standard 1`] = `
     \\"precommit\\": \\"pretty-quick --staged\\",
     \\"prepush\\": \\"npm test\\",
     \\"prepublish\\": \\"npm-run-all -s clean compile\\",
+    \\"clean\\": \\"rm -rf native es lib\\",
+    \\"compile\\": \\"npm-run-all -s compile:*\\",
+    \\"compile:native\\": \\"tsc --declaration --outDir native\\",
+    \\"compile:cjs\\": \\"babel src --source-maps --out-dir es --extensions '.js,.ts'\\",
     \\"test\\": \\"jest --coverage\\",
-    \\"test:cov\\": \\"jest --watch\\",
-    \\"clean\\": \\"rm -rf native es lib\\"
-    \\"compile\\": \\"npm-run-all -s compile:*\\"
-    \\"compile:native\\": \\"tsc --declaration --outDir native\\"
-    \\"compile:cjs\\": \\"babel src --source-maps --out-dir es --extensions &#x27;.js,.ts&#x27;\\"
+    \\"test:cov\\": \\"jest --watch\\"
   },
   \\"files\\": [
     \\"native\\",
@@ -104,9 +104,10 @@ exports[`coco:meta should web package style package.json 1`] = `
     \\"precommit\\": \\"pretty-quick --staged\\",
     \\"prepush\\": \\"npm test\\",
     \\"prepublish\\": \\"npm-run-all -s clean compile\\",
+    \\"clean\\": \\"rm -rf native es lib\\",
+    \\"compile\\": \\"npm-run-all -s compile:*\\",
     \\"test\\": \\"jest --coverage\\",
-    \\"test:cov\\": \\"jest --watch\\",
-    \\"clean\\": \\"rm -rf native es lib\\"
+    \\"test:cov\\": \\"jest --watch\\"
   },
   \\"files\\": [
     \\"native\\",

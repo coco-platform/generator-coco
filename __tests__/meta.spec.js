@@ -36,7 +36,10 @@ describe('coco:meta', () => {
       scope: 'coco-platform',
       repo: 'automatic-ci',
       description: 'automatic manage ci',
-      scripts: [{ key: 'clean', value: 'rm -rf native es lib' }],
+      scripts: [
+        { key: 'clean', value: 'rm -rf native es lib' },
+        { key: 'compile', value: 'npm-run-all -s compile:*' },
+      ],
     };
 
     expect(hbs.compile(template)(context)).toMatchSnapshot();
@@ -51,18 +54,19 @@ describe('coco:meta generator', () => {
       scope: 'coco-platform',
       repo: 'automatic-ci',
       description: 'automatic manage ci',
+      environment: 'Node',
     };
     const options = {
-      environment: 'Node',
+      project: 'UT',
     };
     return renderer
       .run(meta)
       .withOptions(options)
       .withPrompts(prompts)
       .then(() => {
-        assert.file(['README.md', 'package.json']);
+        assert.file(['UT/README.md', 'UT/package.json']);
 
-        const configuration = fs.readFileSync('package.json', 'utf8');
+        const configuration = fs.readFileSync('UT/package.json', 'utf8');
 
         expect(configuration).toMatchSnapshot();
       });
