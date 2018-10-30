@@ -6,6 +6,7 @@
 /* eslint-disable indent,max-len */
 
 // packages
+const assert = require('assert');
 const hbs = require('handlebars');
 const Generator = require('yeoman-generator');
 // scope
@@ -62,6 +63,14 @@ class MetaGenerator extends Generator {
       type: String,
       default: 'Node',
     });
+
+    this.option('project', {
+      desc: 'the new project name',
+      alias: 'p',
+      type: String,
+    });
+
+    assert(this.options.project, 'the project option is required');
   }
 
   async prompting() {
@@ -104,6 +113,7 @@ class MetaGenerator extends Generator {
   }
 
   writing() {
+    const { project } = this.options;
     const readme = {
       template: this.fs.read(this.templatePath('README.md.hbs')),
       context: this.answers,
@@ -117,11 +127,11 @@ class MetaGenerator extends Generator {
     };
 
     this.fs.write(
-      this.destinationPath('README.md'),
+      this.destinationPath(`${project}/README.md`),
       hbs.compile(readme.template)(readme.context)
     );
     this.fs.write(
-      this.destinationPath('package.json'),
+      this.destinationPath(`${project}/package.json`),
       hbs.compile(json.template)(json.context)
     );
   }
