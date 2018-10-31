@@ -84,13 +84,17 @@ class EslintGenerator extends Generator {
   }
 
   install() {
-    const shareDependencies = ['eslint', 'eslint-config-prettier'];
+    const baseDependencies = ['eslint', 'eslint-config-prettier'];
     const dedicatedDependencies = Reflect.get(
       PresetDependencies,
       this.answers.environment
     );
 
-    this.yarnInstall([...shareDependencies, ...dedicatedDependencies], {
+    if (this.answers.babel) {
+      baseDependencies.push('babel-eslint');
+    }
+
+    this.yarnInstall([...baseDependencies, ...dedicatedDependencies], {
       dev: true,
     });
   }
