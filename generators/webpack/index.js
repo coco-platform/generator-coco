@@ -28,6 +28,11 @@ class WebpackGenerator extends Generator {
 
     this.log(chalk.cyan(welcome));
     this.log();
+    this.option('only', {
+      desc: 'use only development or production configuration',
+      alias: 'o',
+      type: String,
+    });
   }
 
   async prompting() {
@@ -51,7 +56,6 @@ class WebpackGenerator extends Generator {
         type: 'input',
         name: 'definition',
         message: 'Where is the external resources mappings?',
-        default: 'bootcdn.stable.yml',
       },
       {
         type: 'list',
@@ -62,6 +66,10 @@ class WebpackGenerator extends Generator {
           './src/main.jsx',
           './src/main.ts',
           './src/main.tsx',
+          './public/main.js',
+          './public/main.jsx',
+          './public/main.ts',
+          './public/main.tsx',
         ],
       },
     ]);
@@ -74,11 +82,12 @@ class WebpackGenerator extends Generator {
       this.answers
     );
 
-    this.fs.copyTpl(
-      this.templatePath('webpack.production.ejs'),
-      this.destinationPath('webpack.production.js'),
-      this.answers
-    );
+    if (this.options.only !== 'development' && this.options.only !== 'dev')
+      this.fs.copyTpl(
+        this.templatePath('webpack.production.ejs'),
+        this.destinationPath('webpack.production.js'),
+        this.answers
+      );
   }
 
   install() {
@@ -87,7 +96,7 @@ class WebpackGenerator extends Generator {
       '@coco-platform/webpack-plugin-html-minify',
       '@coco-platform/webpack-plugin-inject-external',
       'autoprefixer',
-      'babel-core',
+      'babel-core@bridge',
       'babel-loader',
       'case-sensitive-paths-webpack-plugin',
       'compression-webpack-plugin',
@@ -105,6 +114,7 @@ class WebpackGenerator extends Generator {
       'uglifyjs-webpack-plugin',
       'url-loader',
       'webpack',
+      'webpack-cli',
       'webpack-bundle-analyzer',
       'webpack-plugin-inject-external',
     ];
