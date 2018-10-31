@@ -8,7 +8,7 @@ exports[`coco:webpack should generate webpack configuration with typescript 1`] 
 
 // packages
 const path = require('path');
-const webpack = require('webpack/index');
+const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -118,7 +118,7 @@ module.exports ={
     
     new InjectExternalPlugin({
       env: 'development',
-      definition: bootcdn.stable.yml,
+      definition: 'bootcdn.stable.yml',
     }),
     
     new BundleAnalyzerPlugin({
@@ -317,7 +317,7 @@ exports[`coco:webpack should generate webpack configuration without typescript 1
 
 // packages
 const path = require('path');
-const webpack = require('webpack/index');
+const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -422,7 +422,7 @@ module.exports ={
     
     new InjectExternalPlugin({
       env: 'development',
-      definition: bootcdn.stable.yml,
+      definition: 'bootcdn.stable.yml',
     }),
     
     new BundleAnalyzerPlugin({

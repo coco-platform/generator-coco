@@ -115,7 +115,7 @@ module.exports ={
     <% if (definition) { %>
     new InjectExternalPlugin({
       env: 'development',
-      definition: <%= definition %>,
+      definition: '<%= definition %>',
     }),
     <% } %>
     new BundleAnalyzerPlugin({
