@@ -68,6 +68,7 @@ class BabelGenerator extends Generator {
 
     // babel preset, plugin dependencies
     this.yarnInstall(dependencies, { dev: true });
+    this.yarnInstall(['@babel/runtime-corejs2']);
     this.yarnInstall(['@babel/cli', '@babel/core', 'babel-core@bridge'], {
       dev: true,
     });
