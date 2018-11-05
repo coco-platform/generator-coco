@@ -115,6 +115,7 @@ class WebpackGenerator extends Generator {
       'url-loader',
       'webpack',
       'webpack-cli',
+      'webpack-dev-server',
       'webpack-bundle-analyzer',
       'webpack-plugin-inject-external',
     ];
