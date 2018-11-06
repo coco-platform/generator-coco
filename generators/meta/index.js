@@ -123,6 +123,7 @@ class MetaGenerator extends Generator {
       template: this.fs.read(this.templatePath('package.json.hbs')),
       context: {
         ...this.answers,
+        web: this.answers.environment === 'Web',
         scripts: Reflect.get(PresetScripts, this.answers.environment),
       },
     };

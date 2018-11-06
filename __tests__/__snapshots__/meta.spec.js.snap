@@ -96,6 +96,7 @@ exports[`coco:meta should web package style package.json 1`] = `
   \\"version\\": \\"0.1.0\\",
   \\"description\\": \\"automatic manage ci\\",
   \\"main\\": \\"lib/index.js\\",
+  \\"module\\": \\"es/index.js\\",
   \\"types\\": \\"native/index.d.ts\\",
   \\"engines\\": {
     \\"node\\": \\">=10.0.0\\"
@@ -110,6 +111,7 @@ exports[`coco:meta should web package style package.json 1`] = `
     \\"test:cov\\": \\"jest --watch\\"
   },
   \\"files\\": [
+    \\"es\\",
     \\"native\\",
     \\"lib\\"
   ],

@@ -36,6 +36,7 @@ describe('coco:meta', () => {
       scope: 'coco-platform',
       repo: 'automatic-ci',
       description: 'automatic manage ci',
+      web: true,
       scripts: [
         { key: 'clean', value: 'rm -rf native es lib' },
         { key: 'compile', value: 'npm-run-all -s compile:*' },
