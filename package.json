@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
+    "deepmerge": "^3.1.0",
     "figlet": "^1.2.1",
     "handlebars": "^4.0.12",
     "yeoman-generator": "^3.1.1"
