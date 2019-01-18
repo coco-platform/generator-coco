@@ -22,18 +22,22 @@ class GitGenerator extends Generator {
     // initialize commitizen when necessary
     if (this.answers.commitizen) {
       const metaFile = this.destinationPath('package.json');
-      const meta = this.fs.readJSON(metaFile);
-      const extension = {
-        config: {
-          commitizen: {
-            path: 'cz-conventional-changelog',
+      const exist = this.fs.exists(metaFile);
+
+      if (exist) {
+        const meta = this.fs.readJSON(metaFile);
+        const extension = {
+          config: {
+            commitizen: {
+              path: 'cz-conventional-changelog',
+            },
           },
-        },
-      };
+        };
 
-      const override = merge(meta, extension);
+        const override = merge(meta, extension);
 
-      this.fs.writeJSON(metaFile, override, null, 2);
+        this.fs.writeJSON(metaFile, override, null, 2);
+      }
     }
 
     this.fs.copy(
