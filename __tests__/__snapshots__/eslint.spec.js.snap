@@ -14,26 +14,9 @@ extends:
   - 'airbnb-base'
   - 'prettier'
 rules:
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
-  quotes:
-    - error
-    - single
-    - allowTemplateLiterals: true
-  semi:
-    - error
-    - always
-  arrow-parens:
-    - error
-    - always
-  max-len:
-    - error
-    - code: 120
 "
 `;
 
@@ -45,26 +28,9 @@ parserOptions:
   ecmaFeatures:
     jsx: true
 rules:
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
-  quotes:
-    - error
-    - single
-    - allowTemplateLiterals: true
-  semi:
-    - error
-    - always
-  arrow-parens:
-    - error
-    - always
-  max-len:
-    - error
-    - code: 120
 "
 `;
 
@@ -75,26 +41,9 @@ exports[`coco:eslint render should render properly without babel parser 1`] = `
   ecmaFeatures:
     jsx: true
 rules:
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
-  quotes:
-    - error
-    - single
-    - allowTemplateLiterals: true
-  semi:
-    - error
-    - always
-  arrow-parens:
-    - error
-    - always
-  max-len:
-    - error
-    - code: 120
 "
 `;
 
@@ -108,26 +57,9 @@ env:
   node: true
   jest: true
 rules:
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
-  quotes:
-    - error
-    - single
-    - allowTemplateLiterals: true
-  semi:
-    - error
-    - always
-  arrow-parens:
-    - error
-    - always
-  max-len:
-    - error
-    - code: 120
 "
 `;
 
@@ -140,25 +72,8 @@ exports[`coco:eslint render should render property environment extension 1`] = `
 extends:
   - 'eslint:recommended'
 rules:
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
-  quotes:
-    - error
-    - single
-    - allowTemplateLiterals: true
-  semi:
-    - error
-    - always
-  arrow-parens:
-    - error
-    - always
-  max-len:
-    - error
-    - code: 120
 "
 `;
