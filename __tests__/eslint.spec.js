@@ -12,13 +12,7 @@ const hbs = require('handlebars');
 
 describe('coco:eslint render', () => {
   const template = fs.readFileSync(
-    path.resolve(
-      process.cwd(),
-      'generators',
-      'eslint',
-      'templates',
-      '.eslintrc.yml.hbs'
-    ),
+    path.resolve(__dirname, '../generators/eslint/templates/.eslintrc.yml.hbs'),
     'utf8'
   );
   const compile = hbs.compile(template);
