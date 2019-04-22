@@ -1,0 +1,70 @@
+stages:
+  - build
+  - test
+  - deploy
+
+# Compile block, preset output --> dist
+compile:
+  stage: build
+  before_script:
+    - yarn --ignore-engines
+  script:
+    - yarn run build
+  cache:
+    key: '$CI_PROJECT_ID'
+    paths:
+      - node_modules/
+  artifacts:
+    when: on_success
+    expire_in: 15 mins
+    paths:
+      - dist/
+  tags:
+    - production
+    - universal
+    - wuxi
+
+development:
+  stage: deploy
+  when: manual
+  dependencies:
+    - compile
+  script:
+    - yarn run tarball
+    - yarn run deploy:development
+  tags:
+    - production
+    - universal
+    - wuxi
+
+production:A:
+  stage: deploy
+  only:
+    - master
+    - tags
+  dependencies:
+    - compile
+  script:
+    - yarn run tarball
+    - yarn run deploy:wuxi:A
+  when: manual
+  tags:
+    - production
+    - universal
+    - wuxi
+
+production:B:
+  stage: deploy
+  only:
+    - master
+    - tags
+  dependencies:
+    - compile
+  script:
+    - yarn run tarball
+    - yarn run deploy:wuxi:B
+  when: manual
+  tags:
+    - production
+    - universal
+    - wuxi
