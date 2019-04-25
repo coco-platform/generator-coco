@@ -46,7 +46,7 @@ production:A:
     - compile
   script:
     - yarn run tarball
-    - yarn run deploy:wuxi:A
+    - yarn run deploy:production:A
   when: manual
   tags:
     - production
@@ -62,7 +62,7 @@ production:B:
     - compile
   script:
     - yarn run tarball
-    - yarn run deploy:wuxi:B
+    - yarn run deploy:production:B
   when: manual
   tags:
     - production
