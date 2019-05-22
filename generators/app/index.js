@@ -8,7 +8,6 @@ const Generator = require('yeoman-generator');
 // scope
 const babel = require.resolve('../babel');
 const eslint = require.resolve('../eslint');
-const git = require.resolve('../git');
 const jest = require.resolve('../jest');
 const prettier = require.resolve('../prettier');
 const travis = require.resolve('../travis');
@@ -20,15 +19,13 @@ class Coco extends Generator {
   initializing() {
     // generator without prompts
     this.composeWith(editor, {});
-    this.composeWith(git, {});
     this.composeWith(prettier, {});
-    this.composeWith(travis, {});
-    // generator with prompts
-    this.composeWith(babel, {});
     this.composeWith(eslint, {});
-    this.composeWith(jest, {});
+    this.composeWith(babel, {});
     this.composeWith(typescript, {});
     this.composeWith(webpack, {});
+    this.composeWith(jest, {});
+    this.composeWith(travis, {});
   }
 }
 
