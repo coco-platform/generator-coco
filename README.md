@@ -7,11 +7,32 @@
 
 coco preset project for bootstrap.
 
-## Usage
+## Install
 
 ```shell
-npm run test;
+npm install -g generator-coco;
 ```
+
+```shell
+yarn global add generator-coco;
+```
+
+## Usage
+
+Provide following shortcut generation:
+
+- `editor`
+- `browserslist`
+- `commit`
+- `eslint`
+- `prettier`
+- `postcss`
+- `typescript`
+- `babel`
+- `webpack`
+- `jest`
+- `travis`
+- `gitlab-ci`
 
 # Licence
 
