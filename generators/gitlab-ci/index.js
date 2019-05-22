@@ -4,8 +4,6 @@
  */
 
 // packages
-const chalk = require('chalk');
-const hbs = require('handlebars');
 const Generator = require('yeoman-generator');
 
 class GitlabCIGenerator extends Generator {
@@ -15,48 +13,28 @@ class GitlabCIGenerator extends Generator {
         type: 'rawlist',
         name: 'project',
         message: `What's the project type?`,
-        choices: ['web', 'nodejs', 'java'],
+        choices: ['web', 'java'],
         default: 0,
       },
     ];
 
-    const environments = [
-      {
-        type: 'confirm',
-        name: 'scale',
-        message: `Do you have more than one production cluster?`,
-        default: true,
-      },
-    ];
-
-    const project = await this.prompt(projects);
-    const environment = await this.prompt(environments);
-
-    this.answers = { ...project, ...environment };
+    this.answers = await this.prompt(projects);
   }
 
   configuring() {
     if (this.answers.project === 'web') {
-      const template = this.fs.read(this.templatePath('web.yml.hbs'));
-      const compile = hbs.compile(template);
+      const template = this.templatePath('.gitlab-ci-web.yml');
       const destiny = this.destinationPath('.gitlab-ci.yml');
-      const content = compile(this.answers);
 
-      return this.fs.write(destiny, content);
+      return this.fs.write(template, destiny);
     }
 
     if (this.answers.project === 'java') {
-      const template = this.templatePath('java.yml');
+      const template = this.templatePath('.gitlab-ci-java.yml');
       const destiny = this.destinationPath('.gitlab-ci.yml');
 
       return this.fs.copy(template, destiny);
     }
-
-    this.log(
-      chalk.cyan(
-        ` Todo - Gitlab CI for ${this.answers.project} is still in progress!!!`
-      )
-    );
   }
 }
 

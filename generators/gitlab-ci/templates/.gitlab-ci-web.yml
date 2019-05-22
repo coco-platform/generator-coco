@@ -37,52 +37,18 @@ development:
     - universal
     - wuxi
 
-{{#if scale}}
-production:A:
-  stage: deploy
-  only:
-    - master
-    - tags
-  dependencies:
-    - compile
-  script:
-    - yarn run tarball
-    - yarn run deploy:production:A
-  when: manual
-  tags:
-    - production
-    - universal
-    - wuxi
-
-production:B:
-  stage: deploy
-  only:
-    - master
-    - tags
-  dependencies:
-    - compile
-  script:
-    - yarn run tarball
-    - yarn run deploy:production:B
-  when: manual
-  tags:
-    - production
-    - universal
-    - wuxi
-{{else}}
 production:
   stage: deploy
   only:
-  - master
-  - tags
+    - master
+    - tags
   dependencies:
-  - compile
+    - compile
   script:
-  - yarn run tarball
-  - yarn run deploy:production
+    - yarn run tarball
+    - yarn run deploy:production
   when: manual
   tags:
-  - production
-  - universal
-  - wuxi
-{{/if}}
+    - production
+    - universal
+    - wuxi

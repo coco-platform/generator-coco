@@ -1,0 +1,32 @@
+stages:
+  - build
+  - test
+  - deploy
+
+# monomer only
+development:
+  stage: deploy
+  environment:
+    name: development
+  tags:
+    - production
+    - universal
+    - wuxi
+    - secondary
+  script:
+    - mvn clean install -Dmaven.test.skip=true
+    - ansible-playbook -i ansible/development  ansible/site.yml --extra-vars "ansible_password=${ANSIBLE_PASSWORD} ansible_sudo_pass=${ANSIBLE_SUDO_PASS} package=`ls target | grep jar | grep -v original`";
+
+production:
+  stage: deploy
+  when: manual
+  environment:
+    name: production
+  tags:
+    - production
+    - universal
+    - wuxi
+    - secondary
+  script:
+    - mvn clean install -Dmaven.test.skip=true
+    - ansible-playbook -i ansible/production  ansible/site.yml --extra-vars "ansible_password=${ANSIBLE_PASSWORD} ansible_sudo_pass=${ANSIBLE_SUDO_PASS} package=`ls target | grep jar | grep -v original`";
