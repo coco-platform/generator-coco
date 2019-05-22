@@ -42,9 +42,14 @@ class GitlabCIGenerator extends Generator {
       const destiny = this.destinationPath('.gitlab-ci.yml');
       const content = compile(this.answers);
 
-      this.fs.write(destiny, content);
+      return this.fs.write(destiny, content);
+    }
 
-      return;
+    if (this.answers.project === 'java') {
+      const template = this.templatePath('java.yml');
+      const destiny = this.destinationPath('.gitlab-ci.yml');
+
+      return this.fs.copy(template, destiny);
     }
 
     this.log(
