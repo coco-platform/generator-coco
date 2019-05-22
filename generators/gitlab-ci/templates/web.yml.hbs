@@ -37,6 +37,7 @@ development:
     - universal
     - wuxi
 
+{{#if scale}}
 production:A:
   stage: deploy
   only:
@@ -68,3 +69,20 @@ production:B:
     - production
     - universal
     - wuxi
+{{else}}
+production:
+  stage: deploy
+  only:
+  - master
+  - tags
+  dependencies:
+  - compile
+  script:
+  - yarn run tarball
+  - yarn run deploy:production
+  when: manual
+  tags:
+  - production
+  - universal
+  - wuxi
+{{/if}}
