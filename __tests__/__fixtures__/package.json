@@ -1,0 +1,23 @@
+{
+  "name": "generator-coco",
+  "version": "0.2.0",
+  "description": "NPM browser compatible package.",
+  "keywords": [
+    "typescript",
+    "package"
+  ],
+  "author": "huang.jian <hjj491229492@hotmail.com>",
+  "contributors": [
+    {
+      "name": "huang.jian",
+      "email": "hjj491229492@hotmail.com"
+    },
+    {
+      "name": "yang.yuncai",
+      "email": "383235388@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -9,12 +9,12 @@ const fs = require('fs');
 const renderer = require('yeoman-test');
 const assert = require('yeoman-assert');
 
-describe('coco:prettier', () => {
-  it('should setup prettier environment', () => {
-    const prettier = path.resolve(__dirname, '../generators/prettier');
+describe('coco:commit', () => {
+  it('should setup commitizen environment', () => {
+    const commit = path.resolve(__dirname, '../generators/commit');
 
     return renderer
-      .run(prettier)
+      .run(commit)
       .inTmpDir((dir) => {
         const template = path.resolve(__dirname, '__fixtures__/package.json');
         const destiny = path.resolve(dir, 'package.json');
@@ -22,7 +22,7 @@ describe('coco:prettier', () => {
         fs.copyFileSync(template, destiny);
       })
       .then(() => {
-        assert.file(['.prettierrc']);
+        assert.file(['.commitlintrc.yml']);
 
         const meta = fs.readFileSync('package.json', 'utf8');
 
