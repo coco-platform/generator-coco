@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: ensure container exist
+      file:
+        path: '{{ static_container }}'
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
+        state: directory
+    - name: distribute static bundle
+      unarchive:
+        src: '{{ static_bundle }}'
+        dest: '{{ static_container }}'

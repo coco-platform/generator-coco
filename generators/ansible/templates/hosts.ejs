@@ -1,0 +1,13 @@
+# Ansible Hosts
+
+[all:vars]
+ansible_user=centos
+<% if (project === 'web') { -%>
+static_bundle=bundle.tar.gz
+static_container=/usr/local/nginx/html
+<%}-%>
+<% if (project === 'java') { -%>
+container=/home/centos/athena-remote
+port=6545
+env=www
+<%}%>

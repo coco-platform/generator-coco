@@ -1,0 +1,38 @@
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: 'ensure container exist'
+      file:
+        path: '{{container}}'
+        state: directory
+    - name: 'copy jar binary into remote machine'
+      copy:
+        src: '../target/{{ package }}'
+        dest: '{{container}}'
+    - name: 'marry athena'
+      become: true
+      npm:
+        name: '@athenadevops/remote'
+        global: yes
+        state: present
+        version: 0.5.6
+        registry: 'https://registry.npm.taobao.org'
+    - name: 'shutdown old micro service'
+      become: yes
+      command: 'athena-kill {{listen}}'
+      async: 40
+      poll: 5
+    - name: 'ensure old micro service shutdown properly'
+      wait_for:
+        port: '{{listen}}'
+        timeout: 120
+        state: stopped
+    - name: 'start latest micro service'
+      commands: 'athena-bootstrap java -e {{env}} -j {{container}}/{{package}}'
+      async: 40
+      poll: 5
+    - name: 'ensure latest micro service active'
+      wait_for:
+        port: '{{listen}}'
+        timeout: 600
+        state: started
