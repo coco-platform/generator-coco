@@ -8,7 +8,9 @@
   "scripts": {
     "prepush": "npm test",
     "test": "jest --coverage",
-    "test:cov": "jest --watch"
+    "test:cov": "jest --watch",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "files": [
     "generators"
@@ -37,13 +39,14 @@
   },
   "homepage": "https://github.com/huang-xiao-jian/generator-coco#README",
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
     "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "@types/handlebars": "^4.0.39",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.2",
     "@types/yeoman-generator": "^3.1.2",
-    "commitizen": "^3.0.7",
+    "commitizen": "^4.0.0",
     "cz-conventional-changelog": "^3.0.0",
     "eslint": "^6.0.0",
     "eslint-plugin-node": "^9.0.1",
@@ -56,10 +59,11 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "deepmerge": "^3.1.0",
+    "deepmerge": "^4.0.0",
     "figlet": "^1.2.1",
     "handlebars": "^4.1.0",
-    "yeoman-generator": "^4.0.0"
+    "yeoman-generator": "^4.0.0",
+    "snyk": "^1.189.0"
   },
   "config": {
     "commitizen": {
@@ -71,5 +75,6 @@
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  }
+  },
+  "snyk": true
 }
