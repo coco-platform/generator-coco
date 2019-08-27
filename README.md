@@ -23,9 +23,10 @@ Provide following shortcut generation:
 
 - `editor`
 - `browserslist`
-- `commit`
+- `huksy`
+- `commit` - compose with husky, avoid directly usage
+- `prettier` - compose with husky, avoid directly usage
 - `eslint`
-- `prettier`
 - `postcss`
 - `typescript`
 - `babel`
