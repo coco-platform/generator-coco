@@ -1,5 +1,5 @@
 /**
- * @description -coco gitlab CI generator
+ * @description - coco gitlab CI generator
  * @author - huang.jian <hjj491229492@hotmail.com>
  */
 
@@ -26,14 +26,14 @@ class GitlabCIGenerator extends Generator {
       const template = this.templatePath('.gitlab-ci-web.yml');
       const destiny = this.destinationPath('.gitlab-ci.yml');
 
-      return this.fs.copy(template, destiny);
+      this.fs.copy(template, destiny);
     }
 
     if (this.answers.project === 'java') {
       const template = this.templatePath('.gitlab-ci-java.yml');
       const destiny = this.destinationPath('.gitlab-ci.yml');
 
-      return this.fs.copy(template, destiny);
+      this.fs.copy(template, destiny);
     }
   }
 }

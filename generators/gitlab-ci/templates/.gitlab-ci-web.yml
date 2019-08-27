@@ -1,9 +1,13 @@
+# 特别说明：
+#   1. 脚本定义使用代理模式，脚本内容通过 package.json scripts 字段定义
+#   2. 默认构建输出目录为 `dist`，根据实际情况调整
+#   3. 如果使用 `sentry` 监控，需要本地 `cli` 配置信息
 stages:
   - build
   - test
   - deploy
+  - monitor
 
-# Compile block, preset output --> dist
 compile:
   stage: build
   before_script:
@@ -31,7 +35,7 @@ development:
     - compile
   script:
     - yarn run tarball
-    - yarn run deploy:development
+    - yarn run deploy:development # 发布开发环境
   tags:
     - production
     - universal
@@ -45,8 +49,25 @@ production:
   dependencies:
     - compile
   script:
-    - yarn run tarball
-    - yarn run deploy:production
+    - yarn run tarball # 静态内容合并压缩包
+    - yarn run deploy:production # 发布生产环境
+  when: manual
+  tags:
+    - production
+    - universal
+    - wuxi
+
+sentry:
+  stage: monitor
+  only:
+    - master
+    - tags
+  dependencies:
+    - compile
+  script:
+    - yarn run sentry:setup # 安装 `@sentry/cli` 依赖
+    - yarn run sentry:new # 新建 `release` 版本
+    - yarn run sentry:sourcemaps # 上传构建 `sourcemaps`
   when: manual
   tags:
     - production
