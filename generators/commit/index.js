@@ -8,10 +8,6 @@ const merge = require('deepmerge');
 const Generator = require('yeoman-generator');
 
 class CommitGenerator extends Generator {
-  initializing() {
-    this.composeWith(require.resolve('../husky'), {});
-  }
-
   // please ensure under node-compatible project
   writing() {
     const metaFile = this.destinationPath('package.json');

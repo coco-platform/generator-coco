@@ -8,10 +8,7 @@ const merge = require('deepmerge');
 const Generator = require('yeoman-generator');
 
 class PrettierGenerator extends Generator {
-  initializing() {
-    this.composeWith(require.resolve('../husky'), {});
-  }
-
+  // please ensure under node-compatible project
   writing() {
     const metaFile = this.destinationPath('package.json');
     const meta = this.fs.readJSON(metaFile);

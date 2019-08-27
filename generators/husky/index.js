@@ -7,6 +7,11 @@
 const Generator = require('yeoman-generator');
 
 class HuskyGenerator extends Generator {
+  initializing() {
+    this.composeWith(require.resolve('../prettier'), {});
+    this.composeWith(require.resolve('../commit'), {});
+  }
+
   install() {
     this.yarnInstall(['husky'], { dev: true });
   }
