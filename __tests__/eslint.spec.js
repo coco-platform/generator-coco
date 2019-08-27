@@ -55,6 +55,7 @@ describe('coco:eslint generator', () => {
     const eslint = path.resolve(__dirname, '../generators/eslint');
     const prompts = {
       babel: false,
+      react: false,
       context: ['node', 'jest'],
       environment: 'Web',
     };

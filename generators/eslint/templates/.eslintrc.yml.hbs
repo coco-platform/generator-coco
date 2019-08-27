@@ -4,8 +4,12 @@
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
+{{!-- React 上下文环境开启 --}}
+{{#if react}}
   ecmaFeatures:
     jsx: true
+{{/if}}
+{{!-- React 上下文环境开启 --}}
 {{#if context.length ~}}
 env:
 {{/if}}

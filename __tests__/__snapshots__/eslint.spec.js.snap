@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`coco:eslint generator should output eslint configuration 1`] = `
-"parserOptions:
+"parser: babel-eslint
+parserOptions:
   ecmaVersion: 2018
   sourceType: module
-  ecmaFeatures:
-    jsx: true
 env:
   node: true
   jest: true
@@ -25,8 +24,6 @@ exports[`coco:eslint render should render properly with babel parser 1`] = `
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
-  ecmaFeatures:
-    jsx: true
 rules:
   linebreak-style:
     - error
@@ -38,8 +35,6 @@ exports[`coco:eslint render should render properly without babel parser 1`] = `
 "parserOptions:
   ecmaVersion: 2018
   sourceType: module
-  ecmaFeatures:
-    jsx: true
 rules:
   linebreak-style:
     - error
@@ -51,8 +46,6 @@ exports[`coco:eslint render should render property context 1`] = `
 "parserOptions:
   ecmaVersion: 2018
   sourceType: module
-  ecmaFeatures:
-    jsx: true
 env:
   node: true
   jest: true
@@ -67,8 +60,6 @@ exports[`coco:eslint render should render property environment extension 1`] = `
 "parserOptions:
   ecmaVersion: 2018
   sourceType: module
-  ecmaFeatures:
-    jsx: true
 extends:
   - 'eslint:recommended'
 rules:

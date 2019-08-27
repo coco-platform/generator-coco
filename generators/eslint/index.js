@@ -16,18 +16,34 @@ const hbs = require('handlebars');
 const Generator = require('yeoman-generator');
 // scope
 const PresetExtensions = {
-  Node: ['eslint:recommended', 'prettier', 'plugin:node/recommended'],
+  Node: [
+    'eslint:recommended',
+    'plugin:node/recommended',
+    'airbnb-base',
+    'prettier',
+  ],
   Web: ['eslint:recommended', 'airbnb-base', 'prettier'],
   React: ['eslint:recommended', 'airbnb', 'prettier', 'prettier/react'],
 };
 const PresetDependencies = {
-  Node: ['eslint-plugin-node'],
-  Web: ['eslint-config-airbnb-base', 'eslint-plugin-import'],
+  Node: [
+    'eslint-plugin-node',
+    'eslint-config-airbnb-base',
+    'eslint-plugin-import',
+    'eslint-config-prettier',
+  ],
+  Web: [
+    'eslint-config-airbnb-base',
+    'eslint-plugin-import',
+    'eslint-config-prettier',
+  ],
   React: [
     'eslint-config-airbnb',
     'eslint-plugin-import',
     'eslint-plugin-react',
     'eslint-plugin-jsx-a11y',
+    'eslint-plugin-react-hooks',
+    'eslint-config-prettier',
   ],
 };
 
@@ -38,7 +54,7 @@ class EslintGenerator extends Generator {
         type: ' confirm',
         name: 'babel',
         message: 'Would you like to use babel as eslint parser?',
-        default: false,
+        default: true,
       },
       {
         type: 'checkbox',
@@ -65,9 +81,6 @@ class EslintGenerator extends Generator {
   configuration() {
     const template = this.fs.read(this.templatePath('.eslintrc.yml.hbs'));
     const compile = hbs.compile(template);
-    const additions = {
-      extends: Reflect.get(PresetExtensions, this.answers.environment),
-    };
 
     this.fs.copy(
       this.templatePath('.eslintignore'),
@@ -77,14 +90,17 @@ class EslintGenerator extends Generator {
     this.fs.write(
       this.destinationPath('.eslintrc.yml'),
       compile({
-        ...this.answers,
-        ...additions,
+        babel: this.answers.babel,
+        context: this.answers.context,
+        // React 上下文环境
+        react: this.answers.environment === 'React',
+        extends: Reflect.get(PresetExtensions, this.answers.environment),
       })
     );
   }
 
   install() {
-    const baseDependencies = ['eslint', 'eslint-config-prettier'];
+    const baseDependencies = ['eslint'];
     const dedicatedDependencies = Reflect.get(
       PresetDependencies,
       this.answers.environment
