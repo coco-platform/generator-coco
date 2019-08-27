@@ -8,6 +8,8 @@ exports[`coco:typescript generator should output typescript configuration 1`] = 
   \\"rules\\": {
     \\"quotemark\\": [true, \\"single\\", \\"jsx-double\\"],
     \\"object-literal-sort-keys\\": false,
+    \\"ordered-imports\\": false,
+    \\"interface-name\\": false,
     \\"trailing-comma\\": [
       true,
       {
@@ -24,7 +26,7 @@ exports[`coco:typescript generator should output typescript configuration 2`] = 
 "{
   \\"compilerOptions\\": {
     \\"target\\": \\"esnext\\",
-    \\"module\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
     \\"moduleResolution\\": \\"node\\",
     \\"esModuleInterop\\": true,
     \\"allowSyntheticDefaultImports\\": true,
