@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`coco:browserslist should generate browserslist configuration 1`] = `
-"# coco defaults browserslist
->0.5% in CN
-last 2 versions
+"# Browsers that we support
+
+# common scenes
+>1% in CN
+last 4 versions
 Firefox ESR
+
+# React doesn't support IE8 anyway
 not ie <= 9
 "
 `;
