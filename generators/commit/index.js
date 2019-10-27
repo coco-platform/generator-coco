@@ -21,7 +21,7 @@ class CommitGenerator extends Generator {
       husky: {
         hooks: {
           'prepare-commit-msg': 'exec < /dev/tty && git cz --hook',
-          'commit-msg': 'commit -E HUSKY_GIT_PARAMS',
+          'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS',
         },
       },
     };

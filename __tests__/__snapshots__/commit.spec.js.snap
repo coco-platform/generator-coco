@@ -31,7 +31,7 @@ exports[`coco:commit should setup commitizen environment 1`] = `
   \\"husky\\": {
     \\"hooks\\": {
       \\"prepare-commit-msg\\": \\"exec < /dev/tty && git cz --hook\\",
-      \\"commit-msg\\": \\"commit -E HUSKY_GIT_PARAMS\\"
+      \\"commit-msg\\": \\"commitlint -E HUSKY_GIT_PARAMS\\"
     }
   }
 }

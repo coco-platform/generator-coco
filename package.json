@@ -6,7 +6,6 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "prepush": "npm test",
     "test": "jest --coverage",
     "test:cov": "jest --watch",
     "snyk-protect": "snyk protect",
@@ -74,6 +73,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-push": "npm test",
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
