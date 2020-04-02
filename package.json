@@ -60,7 +60,7 @@
     "yeoman-test": "^2.0.0"
   },
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "deepmerge": "^4.0.0",
     "figlet": "^1.2.1",
     "handlebars": "^4.5.2",
