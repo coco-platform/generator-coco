@@ -55,7 +55,7 @@
     "jest": "^24.8.0",
     "prettier": "^1.13.7",
     "pretty-quick": "^2.0.0",
-    "snyk": "^1.220.0",
+    "snyk": "^1.334.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"
   },
