@@ -64,7 +64,7 @@
     "deepmerge": "^4.0.0",
     "figlet": "^1.2.1",
     "handlebars": "^4.5.2",
-    "yeoman-generator": "^4.0.0"
+    "yeoman-generator": "^5.0.0"
   },
   "config": {
     "commitizen": {
